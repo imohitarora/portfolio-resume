@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { FiPlus as PlusIcon, FiTrash as TrashIcon } from "react-icons/fi";
 import { CVData } from "../../lib/types";
+import { Badge } from "@/components/ui/badge";
 
 interface ExperienceProps {
   cvData: CVData;

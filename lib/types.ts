@@ -25,11 +25,20 @@ export interface BlogPost {
     url: string;
 }
 
+export interface Socials {
+    github: string;
+    linkedin: string;
+    email: string;
+    website: string;
+    twitter: string;
+}
+
 export interface CVData {
     name: string;
     title: string;
     summary: string;
     skills: string[];
+    links: Socials;
     portfolio: Project[];
     experience: Experience[];
     education: Education[];

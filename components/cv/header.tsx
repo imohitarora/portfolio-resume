@@ -1,15 +1,12 @@
 "use client";
 
-import { Switch } from "@/components/ui/switch";
+import { FiGithub, FiGlobe, FiLinkedin, FiMail } from "react-icons/fi";
 import { CVData } from "../../lib/types";
 import { Input } from "../ui/input";
-import { FiGithub as GithubIcon, FiLinkedin as LinkedinIcon, FiMail as MailIcon, FiExternalLink as ExternalLinkIcon, FiPlus as PlusIcon, FiTrash as TrashIcon } from "react-icons/fi";
 
 export interface HeaderProps {
   cvData: CVData;
-
   editMode: boolean;
-
   handleInputChange: (section: keyof CVData, index: number | null, field: string | null, value: string | string[]) => void;
 }
 
@@ -27,14 +24,17 @@ export default function Header({ editMode, cvData, handleInputChange }: HeaderPr
         <p className="text-lg text-gray-600">{cvData.title}</p>
       )}
       <div className="flex justify-center space-x-4 mt-3">
-        <a href="mailto:jane@example.com" className="text-gray-600 hover:text-gray-900">
-          <MailIcon className="h-5 w-5" />
+        <a href={`mailto:${cvData.links.email}`} className="text-gray-600 hover:text-gray-900">
+          <FiMail className="h-5 w-5" />
         </a>
-        <a href="https://github.com/janedoe" className="text-gray-600 hover:text-gray-900">
-          <GithubIcon className="h-5 w-5" />
+        <a href={`https://github.com/${cvData.links.github}`} className="text-gray-600 hover:text-gray-900">
+          <FiGithub className="h-5 w-5" />
         </a>
-        <a href="https://linkedin.com/in/janedoe" className="text-gray-600 hover:text-gray-900">
-          <LinkedinIcon className="h-5 w-5" />
+        <a href={`https://linkedin.com/in/${cvData.links.linkedin}`} className="text-gray-600 hover:text-gray-900">
+          <FiLinkedin className="h-5 w-5" />
+        </a>
+        <a href={`https://${cvData.links.website}`} className="text-gray-600 hover:text-gray-900">
+          <FiGlobe className="h-5 w-5" />
         </a>
       </div>
     </header>

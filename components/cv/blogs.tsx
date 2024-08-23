@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { FiExternalLink as ExternalLinkIcon, FiPlus as PlusIcon, FiTrash as TrashIcon } from "react-icons/fi";
-import { CVData } from "../../lib/types";
+import { CVData } from "@/lib/types";
 
 interface BlogsProps {
   cvData: CVData;

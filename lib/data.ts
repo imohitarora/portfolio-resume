@@ -4,6 +4,13 @@ export const initialCVData: CVData = {
     "name": "Mohit Arora",
     "title": "Software & Cloud Architect",
     "summary": "Experienced Software & Cloud Architect with 10+ years in building scalable, secure cloud solutions. Expert in leading teams and delivering innovative projects with significant business impact.",
+    "links": {
+        "github": "imohitarora",
+        "linkedin": "mohitaroralive",
+        "email": "me@aboutmohit.com",
+        "website": "aboutmohit.com",
+        "twitter": "i_m_mohit",
+    },
     "skills": [
         "Microsoft Azure", "Azure Open AI", "Java", "Spring Boot", "Nest JS", "Next JS",
         "Angular", "React", "Python", "AWS", "Javascript", "Docker", "MSSQL", "MySQL",

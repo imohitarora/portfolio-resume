@@ -3,14 +3,14 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { CVData } from "@/lib/types";
 import { useState } from "react";
-import Blogs from "./cv/blogs";
-import EditModeSwitch from "./cv/edit-mode-switch";
 import Education from "./cv/education";
 import Experience from "./cv/experience";
 import Header from "./cv/header";
 import Portfolio from "./cv/portfolio";
 import Skills from "./cv/skills";
 import Summary from "./cv/summary";
+import EditModeSwitch from "./cv/edit-mode-switch";
+import Blogs from "./cv/blogs";
 
 interface ResumeComponentProps {
   initialData: CVData;
@@ -56,7 +56,7 @@ export default function ResumeComponent({ initialData }: ResumeComponentProps) {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 py-8 px-4 sm:px-6 lg:px-8" style={{ fontFamily: "'JetBrains Mono', monospace" }}>
+    <div className="min-h-screen bg-gray-100 py-8 px-4 sm:px-6 lg:px-8">
       <div className="max-w-3xl mx-auto">
         <EditModeSwitch editMode={editMode} setEditMode={setEditMode} />
         <Card className="bg-white shadow-lg rounded-lg overflow-hidden">
