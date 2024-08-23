@@ -8,8 +8,8 @@ export const initialCVData: CVData = {
         "github": "imohitarora",
         "linkedin": "mohitaroralive",
         "email": "me@aboutmohit.com",
-        "website": "aboutmohit.com",
         "twitter": "i_m_mohit",
+        "resume": "https://aboutmohit.com"
     },
     "skills": [
         "Microsoft Azure", "Azure Open AI", "Java", "Spring Boot", "Nest JS", "Next JS",

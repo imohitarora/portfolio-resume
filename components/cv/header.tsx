@@ -1,8 +1,8 @@
 "use client";
 
-import { FiGithub, FiGlobe, FiLinkedin, FiMail } from "react-icons/fi";
-import { CVData } from "../../lib/types";
-import { Input } from "../ui/input";
+import { FiGithub, FiPaperclip, FiLinkedin, FiMail } from "react-icons/fi";
+import { CVData } from "@/lib/types";
+import { Input } from "@/components/ui/input";
 
 export interface HeaderProps {
   cvData: CVData;
@@ -33,8 +33,8 @@ export default function Header({ editMode, cvData, handleInputChange }: HeaderPr
         <a href={`https://linkedin.com/in/${cvData.links.linkedin}`} className="text-gray-600 hover:text-gray-900">
           <FiLinkedin className="h-5 w-5" />
         </a>
-        <a href={`https://${cvData.links.website}`} className="text-gray-600 hover:text-gray-900">
-          <FiGlobe className="h-5 w-5" />
+        <a href={`https://${cvData.links.resume}`} className="text-gray-600 hover:text-gray-900">
+          <FiPaperclip className="h-5 w-5" />
         </a>
       </div>
     </header>

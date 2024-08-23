@@ -29,8 +29,8 @@ export interface Socials {
     github: string;
     linkedin: string;
     email: string;
-    website: string;
     twitter: string;
+    resume: string;
 }
 
 export interface CVData {
