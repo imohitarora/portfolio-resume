@@ -32,6 +32,6 @@ export interface CVData {
     skills: string[];
     portfolio: Project[];
     experience: Experience[];
-    education: Education;
+    education: Education[];
     blogs: BlogPost[];
 }
