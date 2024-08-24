@@ -58,16 +58,16 @@ export default function ResumeComponent({ initialData }: ResumeComponentProps) {
   return (
     <div className="min-h-screen bg-gray-100 py-8 px-4 sm:px-6 lg:px-8">
       <div className="max-w-3xl mx-auto">
-        <EditModeSwitch editMode={editMode} setEditMode={setEditMode} />
+        {/* <EditModeSwitch editMode={editMode} setEditMode={setEditMode} /> */}
         <Card className="bg-white shadow-lg rounded-lg overflow-hidden">
           <CardContent className="p-6">
             <Header cvData={cvData} editMode={editMode} handleInputChange={handleInputChange} />
             <Summary cvData={cvData} editMode={editMode} handleInputChange={handleInputChange} />
             <Skills cvData={cvData} editMode={editMode} handleInputChange={handleInputChange} addItem={addItem} removeItem={removeItem} />
-            <Portfolio cvData={cvData} editMode={editMode} handleInputChange={handleInputChange} addItem={addItem} removeItem={removeItem} />
+            {/* <Portfolio cvData={cvData} editMode={editMode} handleInputChange={handleInputChange} addItem={addItem} removeItem={removeItem} /> */}
             <Experience cvData={cvData} editMode={editMode} handleInputChange={handleInputChange} addItem={addItem} removeItem={removeItem} />
             <Education cvData={cvData} editMode={editMode} handleInputChange={handleInputChange} />
-            <Blogs cvData={cvData} editMode={editMode} handleInputChange={handleInputChange} addItem={addItem} removeItem={removeItem} />
+            {/* <Blogs cvData={cvData} editMode={editMode} handleInputChange={handleInputChange} addItem={addItem} removeItem={removeItem} /> */}
           </CardContent>
         </Card>
       </div>

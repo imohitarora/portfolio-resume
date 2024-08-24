@@ -51,20 +51,20 @@ export default function Portfolio({ editMode, cvData, handleInputChange, removeI
                       </Badge>
                     ))}
                   </div>
-                  <div className="flex space-x-2">
-                    <Button size="sm" variant="outline" className="h-7 text-xs" asChild>
+                  {/* <div className="flex space-x-2 opacity-60 group-hover:opacity-100 transition-opacity duration-300">
+                    <Button size="sm" variant="ghost" className="h-6 text-xs p-0" asChild>
                       <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
                         <ExternalLinkIcon className="h-3 w-3 mr-1" />
                         Live
                       </a>
                     </Button>
-                    <Button size="sm" variant="outline" className="h-7 text-xs" asChild>
+                    <Button size="sm" variant="ghost" className="h-6 text-xs p-0" asChild>
                       <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
                         <GithubIcon className="h-3 w-3 mr-1" />
                         GitHub
                       </a>
                     </Button>
-                  </div>
+                  </div> */}
                 </>
               )}
             </CardContent>

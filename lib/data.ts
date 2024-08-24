@@ -12,12 +12,48 @@ export const initialCVData: CVData = {
         "resume": "https://aboutmohit.com"
     },
     "skills": [
-        "Microsoft Azure", "Azure Open AI", "Java", "Spring Boot", "Nest JS", "Next JS",
-        "Angular", "React", "Python", "AWS", "Javascript", "Docker", "MSSQL", "MySQL",
+        "Node.js", "NestJS", "Next JS", "Angular", "React", "Python", "GraphQL",
+        "Microsoft Azure", "Azure Open AI", "AWS", "Java", "Spring Boot", "Javascript", "Docker", "MSSQL", "MySQL",
         "PostgreSQL", "MongoDB", "Redis", "Kafka", "TailwindCSS", "Power BI", "SQL",
         "CI/CD", "Jenkins"
     ],
-    "portfolio": [],
+    "portfolio": [
+        {
+            "title": "E-Commerce Platform",
+            "description": "Full-stack e-commerce platform with real-time inventory management.",
+            "tech": ["React", "Node.js", "MongoDB"],
+            "liveUrl": "https://ecommerce.com",
+            "githubUrl": "",
+        },
+        {
+            "title": "AI Chatbot",
+            "description": "Custom AI chatbot for customer support with sentiment analysis.",
+            "tech": ["Azure OpenAI", "React", "Node.js"],
+            "liveUrl": "https://chatbot.com",
+            "githubUrl": "",
+        },
+        {
+            "title": "Portfolio Website",
+            "description": "Personal portfolio website with blog and project showcase.",
+            "tech": ["Next.js", "TailwindCSS"],
+            "liveUrl": "https://aboutmohit.com",
+            "githubUrl": ""
+        },
+        {
+            "title": "Real-time Dashboard",
+            "description": "Real-time dashboard for monitoring server performance and alerts.",
+            "tech": ["React", "Node.js", "Kafka"],
+            "liveUrl": "",
+            "githubUrl": ""
+        },
+        {
+            "title": "Social Media App",
+            "description": "Social media app with user authentication and real-time messaging.",
+            "tech": ["Angular", "Node.js", "MongoDB"],
+            "liveUrl": "",
+            "githubUrl": ""
+        }
+    ],
     "experience": [
         {
             "title": "Software & Cloud Architect",
@@ -72,15 +108,36 @@ export const initialCVData: CVData = {
     ],
     "education": [
         {
-            "degree": "MCA Computer Applications",
+            "degree": "MCA - Master of Computer Applications",
             "school": "Suresh Gyan Vihar University",
             "period": "July 2010 - June 2013"
         },
         {
-            "degree": "BCA Computer Applications",
+            "degree": "BCA - Bachelor of Computer Applications",
             "school": "University of Rajasthan",
             "period": "July 2007 - June 2010"
         }
     ],
-    "blogs": []
+    "blogs": [
+        {
+            "title": "How to Build a Scalable Web App",
+            "summary": "Learn how to build a scalable web app with Node.js, React, and MongoDB.",
+            "url": "https://blog.com/scalable-web-app"
+        },
+        {
+            "title": "The Future of AI in Business",
+            "summary": "Discover how AI is transforming businesses and what the future holds.",
+            "url": "https://blog.com/future-of-ai"
+        },
+        {
+            "title": "Getting Started with Azure OpenAI",
+            "summary": "Get started with Azure OpenAI and build your first AI model.",
+            "url": "https://blog.com/azure-openai"
+        },
+        {
+            "title": "Getting Started with Azure OpenAI",
+            "summary": "Get started with Azure OpenAI and build your first AI model.",
+            "url": "https://blog.com/getting-started-with-azure-openai"
+        }
+    ]
 }
