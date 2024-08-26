@@ -17,6 +17,10 @@ interface PortfolioProps {
 }
 
 export default function Portfolio({ editMode, cvData, handleInputChange, removeItem, addItem }: PortfolioProps) {
+  if (!editMode && cvData.portfolio.length === 0) {
+    return null;
+  }
+
   return (
     <section className="mb-6">
       <h2 className="text-lg font-bold text-gray-900 mb-3">Portfolio</h2>
@@ -51,7 +55,7 @@ export default function Portfolio({ editMode, cvData, handleInputChange, removeI
                       </Badge>
                     ))}
                   </div>
-                  {/* <div className="flex space-x-2 opacity-60 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="flex space-x-2 opacity-60 group-hover:opacity-100 transition-opacity duration-300">
                     <Button size="sm" variant="ghost" className="h-6 text-xs p-0" asChild>
                       <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
                         <ExternalLinkIcon className="h-3 w-3 mr-1" />
@@ -64,7 +68,7 @@ export default function Portfolio({ editMode, cvData, handleInputChange, removeI
                         GitHub
                       </a>
                     </Button>
-                  </div> */}
+                  </div>
                 </>
               )}
             </CardContent>

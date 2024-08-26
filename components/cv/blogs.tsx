@@ -15,6 +15,10 @@ interface BlogsProps {
 }
 
 export default function Blogs({ editMode, cvData, handleInputChange, removeItem, addItem }: BlogsProps) {
+  if (!editMode && cvData.blogs.length === 0) {
+    return null;
+  }
+
   return (
     <section className="mb-6">
       <h2 className="text-lg font-bold text-gray-900 mb-3">Blog Posts</h2>
