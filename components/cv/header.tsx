@@ -25,16 +25,16 @@ export default function Header({ editMode, cvData, handleInputChange }: HeaderPr
         <p className="text-lg text-gray-600">{cvData.title}</p>
       )}
       <div className="flex justify-center space-x-4 mt-3">
-        <a href={`https://github.com/${cvData.links.github}`} className="text-gray-600 hover:text-gray-900">
+        <a href={`https://github.com/${cvData.links.github}`} target="_blank" className="text-gray-600 hover:text-gray-900">
           <FiGithub className="h-5 w-5" />
         </a>
-        <a href={`https://linkedin.com/in/${cvData.links.linkedin}`} className="text-gray-600 hover:text-gray-900">
+        <a href={`https://linkedin.com/in/${cvData.links.linkedin}`} target="_blank" className="text-gray-600 hover:text-gray-900">
           <FiLinkedin className="h-5 w-5" />
         </a>
-        <a href={`https://x.com/${cvData.links.twitter}`} className="text-gray-600 hover:text-gray-900">
+        <a href={`https://x.com/${cvData.links.twitter}`} target="_blank" className="text-gray-600 hover:text-gray-900">
           <FaXTwitter className="h-5 w-5" />
         </a>
-        <a href={`${cvData.links.resume}`} className="text-gray-600 hover:text-gray-900">
+        <a href={`${cvData.links.resume}`} target="_blank" className="text-gray-600 hover:text-gray-900">
           <FiPaperclip className="h-5 w-5" />
         </a>
         <a href={`mailto:${cvData.links.email}`} className="text-gray-600 hover:text-gray-900">
