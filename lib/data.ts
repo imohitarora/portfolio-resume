@@ -52,6 +52,13 @@ export const initialCVData: CVData = {
             "tech": ["Angular", "Node.js", "MongoDB"],
             "liveUrl": "",
             "githubUrl": ""
+        },
+        {
+            "title": "Real-time Dashboard",
+            "description": "Real-time dashboard for monitoring server performance and alerts.",
+            "tech": ["React", "Node.js", "Kafka"],
+            "liveUrl": "",
+            "githubUrl": ""
         }
     ],
     "experience": [
@@ -133,6 +140,16 @@ export const initialCVData: CVData = {
             "title": "Getting Started with Azure OpenAI",
             "summary": "Get started with Azure OpenAI and build your first AI model.",
             "url": "https://blog.com/azure-openai"
+        },
+        {
+            "title": "Getting Started with Azure OpenAI",
+            "summary": "Get started with Azure OpenAI and build your first AI model.",
+            "url": "https://blog.com/getting-started-with-azure-openai"
+        },
+        {
+            "title": "Getting Started with Azure OpenAI",
+            "summary": "Get started with Azure OpenAI and build your first AI model.",
+            "url": "https://blog.com/getting-started-with-azure-openai"
         },
         {
             "title": "Getting Started with Azure OpenAI",

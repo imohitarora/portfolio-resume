@@ -22,7 +22,8 @@ export default function ResumeComponent({ initialData }: ResumeComponentProps) {
   const [editMode, setEditMode] = useState(false);
   const [cvData, setCvData] = useState<CVData>(initialData);
   const { data: session, status } = useSession();
-
+  const [visiblePortfolioItems, setVisiblePortfolioItems] = useState(4);
+  const [visibleBlogPosts, setVisibleBlogPosts] = useState(4);
   const [isAdminRoute, setIsAdminRoute] = useState(false);
   const pathname = usePathname();
 
@@ -71,6 +72,14 @@ export default function ResumeComponent({ initialData }: ResumeComponentProps) {
     }));
   };
 
+  const loadMorePortfolio = () => {
+    setVisiblePortfolioItems(prevVisible => prevVisible + 4)
+  }
+
+  const loadMoreBlogs = () => {
+    setVisibleBlogPosts(prevVisible => prevVisible + 4)
+  }
+
   return (
     <div className="min-h-screen bg-gray-100 py-8 px-4 sm:px-6 lg:px-8">
       <div className="max-w-3xl mx-auto">
@@ -80,10 +89,10 @@ export default function ResumeComponent({ initialData }: ResumeComponentProps) {
             <Header cvData={cvData} editMode={editMode} handleInputChange={handleInputChange} />
             <Summary cvData={cvData} editMode={editMode} handleInputChange={handleInputChange} />
             <Skills cvData={cvData} editMode={editMode} handleInputChange={handleInputChange} addItem={addItem} removeItem={removeItem} />
-            <Portfolio cvData={cvData} editMode={editMode} handleInputChange={handleInputChange} addItem={addItem} removeItem={removeItem} />
+            <Portfolio cvData={cvData} editMode={editMode} handleInputChange={handleInputChange} addItem={addItem} removeItem={removeItem} visiblePortfolioItems={visiblePortfolioItems} loadMorePortfolio={loadMorePortfolio} />
             <Experience cvData={cvData} editMode={editMode} handleInputChange={handleInputChange} addItem={addItem} removeItem={removeItem} />
             <Education cvData={cvData} editMode={editMode} handleInputChange={handleInputChange} />
-            <Blogs cvData={cvData} editMode={editMode} handleInputChange={handleInputChange} addItem={addItem} removeItem={removeItem} />
+            <Blogs cvData={cvData} editMode={editMode} handleInputChange={handleInputChange} addItem={addItem} removeItem={removeItem} visibleBlogPosts={visibleBlogPosts} loadMoreBlogs={loadMoreBlogs} />
           </CardContent>
         </Card>
       </div>

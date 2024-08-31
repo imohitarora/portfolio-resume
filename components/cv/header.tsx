@@ -4,6 +4,7 @@ import { FaXTwitter } from "react-icons/fa6";
 import { FiGithub, FiPaperclip, FiLinkedin, FiMail } from "react-icons/fi";
 import { CVData } from "@/lib/types";
 import { Input } from "@/components/ui/input";
+import Link from "next/link";
 
 export interface HeaderProps {
   cvData: CVData;
@@ -17,7 +18,9 @@ export default function Header({ editMode, cvData, handleInputChange }: HeaderPr
       {editMode ? (
         <Input value={cvData.name} onChange={(e) => handleInputChange("name", null, null, e.target.value)} className="text-2xl font-bold text-center mb-2" />
       ) : (
-        <h1 className="text-2xl font-bold text-gray-900">{cvData.name}</h1>
+        <Link href={`/`}>
+          <h1 className="text-2xl font-bold text-gray-900">{cvData.name}</h1>
+        </Link>
       )}
       {editMode ? (
         <Input value={cvData.title} onChange={(e) => handleInputChange("title", null, null, e.target.value)} className="text-lg text-center" />
