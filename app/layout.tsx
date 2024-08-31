@@ -3,6 +3,7 @@ import { JetBrains_Mono as FontSans } from "next/font/google";
 import "./globals.css";
 
 import { cn } from "@/lib/utils";
+import { Providers } from "./providers";
 
 const fontSans = FontSans({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -16,7 +17,9 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/mohit.svg" type="image/svg+xml" />
       </head>
-      <body className={cn("min-h-screen bg-background font-sans antialiased", fontSans.variable)}>{children}</body>
+      <body className={cn("min-h-screen bg-background font-sans antialiased", fontSans.variable)}>
+        <Providers>{children}</Providers>
+      </body>
     </html>
   );
 }

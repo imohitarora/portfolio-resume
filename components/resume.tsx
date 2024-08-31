@@ -12,27 +12,16 @@ import Skills from "./cv/skills";
 import Summary from "./cv/summary";
 import EditModeSwitch from "./cv/edit-mode-switch";
 import Blogs from "./cv/blogs";
+import { signIn, signOut, useSession } from "next-auth/react";
 
 interface ResumeComponentProps {
   initialData: CVData;
 }
 
-const fakeAuth = {
-  isAuthenticated: false,
-  signin(callback: () => void) {
-    fakeAuth.isAuthenticated = true;
-    setTimeout(callback, 100);
-  },
-  signout(callback: () => void) {
-    fakeAuth.isAuthenticated = false;
-    setTimeout(callback, 100);
-  },
-};
-
 export default function ResumeComponent({ initialData }: ResumeComponentProps) {
   const [editMode, setEditMode] = useState(false);
   const [cvData, setCvData] = useState<CVData>(initialData);
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const { data: session, status } = useSession();
 
   const [isAdminRoute, setIsAdminRoute] = useState(false);
   const pathname = usePathname();
@@ -42,10 +31,10 @@ export default function ResumeComponent({ initialData }: ResumeComponentProps) {
   }, [pathname]);
 
   useEffect(() => {
-    if (!isAuthenticated) {
+    if (!session) {
       setEditMode(false);
     }
-  }, [isAuthenticated]);
+  }, [session]);
 
   const handleInputChange = (section: keyof CVData, index: number | null, field: string | null, value: string | string[]) => {
     setCvData((prevData) => {
@@ -82,22 +71,10 @@ export default function ResumeComponent({ initialData }: ResumeComponentProps) {
     }));
   };
 
-  const handleLogin = () => {
-    fakeAuth.signin(() => {
-      setIsAuthenticated(true);
-    });
-  };
-
-  const handleLogout = () => {
-    fakeAuth.signout(() => {
-      setIsAuthenticated(false);
-    });
-  };
-
   return (
     <div className="min-h-screen bg-gray-100 py-8 px-4 sm:px-6 lg:px-8">
       <div className="max-w-3xl mx-auto">
-        <EditModeSwitch editMode={editMode} isAdminRoute={isAdminRoute} isAuthenticated={isAuthenticated} setEditMode={setEditMode} handleLogin={handleLogin} handleLogout={handleLogout} />
+        <EditModeSwitch editMode={editMode} isAdminRoute={isAdminRoute} isAuthenticated={!!session} setEditMode={setEditMode} />
         <Card className="bg-white shadow-lg rounded-lg overflow-hidden">
           <CardContent className="p-6">
             <Header cvData={cvData} editMode={editMode} handleInputChange={handleInputChange} />

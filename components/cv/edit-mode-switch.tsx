@@ -3,17 +3,21 @@
 import { Switch } from "@/components/ui/switch";
 import { Button } from "@/components/ui/button";
 import { FiLogOut as LogOutIcon, FiGithub as GithubIcon } from "react-icons/fi";
+import { signIn, signOut } from "next-auth/react";
 
 interface EditModeSwitchProps {
   editMode: boolean;
   isAuthenticated: boolean;
   isAdminRoute: boolean;
   setEditMode: (value: boolean) => void;
-  handleLogin: () => void;
-  handleLogout: () => void;
 }
 
-export default function EditModeSwitch({ editMode, isAdminRoute, isAuthenticated, setEditMode, handleLogin, handleLogout }: EditModeSwitchProps) {
+export default function EditModeSwitch({ editMode, isAdminRoute, isAuthenticated, setEditMode }: EditModeSwitchProps) {
+  if (!isAdminRoute) return null;
+
+  const handleLogin = () => signIn("github");
+  const handleLogout = () => signOut();
+
   return (
     <div className="flex justify-end mb-4">
       {isAdminRoute &&
