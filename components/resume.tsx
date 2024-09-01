@@ -39,6 +39,36 @@ export default function ResumeComponent({ initialData }: ResumeComponentProps) {
     }
   }, [session]);
 
+  const updatePortfolioData = async (data: CVData) => {
+    try {
+      const response = await fetch('/api/portfolio', {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+      if (!response.ok) {
+        throw new Error('Failed to update portfolio');
+      }
+      return await response.json();
+    } catch (error) {
+      console.error('Error updating portfolio:', error);
+      throw error;
+    }
+  };
+
+  useEffect(() => {
+    if (!editMode && JSON.stringify(cvData) !== JSON.stringify(initialData)) {
+      updatePortfolioData(cvData)
+        .then(() => console.log("Portfolio data updated successfully"))
+        .catch((error) => {
+          console.error("Error updating portfolio data:", error);
+          // You might want to show an error message to the user here
+        });
+    }
+  }, [editMode, cvData, initialData]);
+
   const handleInputChange = (section: keyof CVData, index: number | null, field: string | null, value: string | string[]) => {
     setCvData((prevData) => {
       if (Array.isArray(prevData[section])) {
