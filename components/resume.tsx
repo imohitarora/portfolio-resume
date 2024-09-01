@@ -25,6 +25,9 @@ export default function ResumeComponent({ initialData }: ResumeComponentProps) {
   const [visiblePortfolioItems, setVisiblePortfolioItems] = useState(4);
   const [visibleBlogPosts, setVisibleBlogPosts] = useState(4);
   const [isAdminRoute, setIsAdminRoute] = useState(false);
+
+  const [currentPortfolioPage, setCurrentPortfolioPage] = useState(0);
+
   const pathname = usePathname();
 
   useEffect(() => {
@@ -73,12 +76,20 @@ export default function ResumeComponent({ initialData }: ResumeComponentProps) {
   };
 
   const loadMorePortfolio = () => {
-    setVisiblePortfolioItems(prevVisible => prevVisible + 4)
-  }
+    setVisiblePortfolioItems((prevVisible) => prevVisible + 4);
+  };
 
   const loadMoreBlogs = () => {
-    setVisibleBlogPosts(prevVisible => prevVisible + 4)
-  }
+    setVisibleBlogPosts((prevVisible) => prevVisible + 4);
+  };
+
+  const nextPortfolioPage = () => {
+    setCurrentPortfolioPage((prev) => ((prev + 1) * 4 >= cvData.portfolio.length ? 0 : prev + 1));
+  };
+
+  const prevPortfolioPage = () => {
+    setCurrentPortfolioPage((prev) => (prev === 0 ? Math.floor((cvData.portfolio.length - 1) / 4) : prev - 1));
+  };
 
   return (
     <div className="min-h-screen bg-gray-100 py-8 px-4 sm:px-6 lg:px-8">
@@ -89,10 +100,30 @@ export default function ResumeComponent({ initialData }: ResumeComponentProps) {
             <Header cvData={cvData} editMode={editMode} handleInputChange={handleInputChange} />
             <Summary cvData={cvData} editMode={editMode} handleInputChange={handleInputChange} />
             <Skills cvData={cvData} editMode={editMode} handleInputChange={handleInputChange} addItem={addItem} removeItem={removeItem} />
-            <Portfolio cvData={cvData} editMode={editMode} handleInputChange={handleInputChange} addItem={addItem} removeItem={removeItem} visiblePortfolioItems={visiblePortfolioItems} loadMorePortfolio={loadMorePortfolio} />
+            <Portfolio
+              cvData={cvData}
+              editMode={editMode}
+              handleInputChange={handleInputChange}
+              addItem={addItem}
+              removeItem={removeItem}
+              visiblePortfolioItems={visiblePortfolioItems}
+              loadMorePortfolio={loadMorePortfolio}
+              currentPortfolioPage={currentPortfolioPage}
+              setCurrentPortfolioPage={setCurrentPortfolioPage}
+              prevPortfolioPage={prevPortfolioPage}
+              nextPortfolioPage={nextPortfolioPage}
+            />
             <Experience cvData={cvData} editMode={editMode} handleInputChange={handleInputChange} addItem={addItem} removeItem={removeItem} />
             <Education cvData={cvData} editMode={editMode} handleInputChange={handleInputChange} />
-            <Blogs cvData={cvData} editMode={editMode} handleInputChange={handleInputChange} addItem={addItem} removeItem={removeItem} visibleBlogPosts={visibleBlogPosts} loadMoreBlogs={loadMoreBlogs} />
+            <Blogs
+              cvData={cvData}
+              editMode={editMode}
+              handleInputChange={handleInputChange}
+              addItem={addItem}
+              removeItem={removeItem}
+              visibleBlogPosts={visibleBlogPosts}
+              loadMoreBlogs={loadMoreBlogs}
+            />
           </CardContent>
         </Card>
       </div>
