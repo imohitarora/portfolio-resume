@@ -3,7 +3,12 @@ import { initialCVData } from "@/lib/data";
 
 async function getPortfolioData() {
   try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/portfolio`, { cache: 'no-store' });
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/portfolio`, {
+      cache: 'no-store',
+      headers: {
+        'X-Custom-Auth': process.env.NEXTAUTH_SECRET || ''
+      }
+    });
     if (!response.ok) {
       throw new Error('Failed to fetch portfolio data');
     }
