@@ -37,7 +37,7 @@ export default function Header({ editMode, cvData, handleInputChange }: HeaderPr
         <a href={`https://x.com/${cvData.links.twitter}`} target="_blank" className="text-gray-600 hover:text-gray-900">
           <FaXTwitter className="h-5 w-5" />
         </a>
-        <a href={`${cvData.links.resume}`} target="_blank" className="text-gray-600 hover:text-gray-900">
+        <a href={`/Mohit_Arora_CV.pdf`} target="_blank" className="text-gray-600 hover:text-gray-900">
           <FiPaperclip className="h-5 w-5" />
         </a>
         <a href={`mailto:${cvData.links.email}`} className="text-gray-600 hover:text-gray-900">
