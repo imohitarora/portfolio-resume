@@ -7,6 +7,11 @@ import { Providers } from "./providers";
 
 const fontSans = FontSans({ subsets: ["latin"], variable: "--font-sans" });
 
+export const metadata: Metadata = {
+  title: "Mohit Arora | aboutmohit.com",
+  description: "CTO | Software & Cloud Architect | Full Stack Developer",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
