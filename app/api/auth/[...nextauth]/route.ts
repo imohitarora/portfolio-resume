@@ -15,10 +15,10 @@ const handler = NextAuth({
                 return false
             }
             const allowedUsers = await getAllowedUsers();
-            console.log(allowedUsers)
             return allowedUsers.includes(profile.email);
         },
     },
+    secret: process.env.NEXTAUTH_SECRET,
 })
 
 export { handler as GET, handler as POST }

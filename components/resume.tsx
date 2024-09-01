@@ -41,7 +41,7 @@ export default function ResumeComponent({ initialData }: ResumeComponentProps) {
 
   const updatePortfolioData = async (data: CVData) => {
     try {
-      const response = await fetch('/api/portfolio', {
+      const response = await fetch('/api/portfolio/update', {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
