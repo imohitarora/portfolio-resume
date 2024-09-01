@@ -1,18 +1,18 @@
 "use client";
 
-import { usePathname } from "next/navigation";
 import { Card, CardContent } from "@/components/ui/card";
 import { CVData } from "@/lib/types";
+import { useSession } from "next-auth/react";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import Blogs from "./cv/blogs";
+import EditModeSwitch from "./cv/edit-mode-switch";
 import Education from "./cv/education";
 import Experience from "./cv/experience";
 import Header from "./cv/header";
 import Portfolio from "./cv/portfolio";
 import Skills from "./cv/skills";
 import Summary from "./cv/summary";
-import EditModeSwitch from "./cv/edit-mode-switch";
-import Blogs from "./cv/blogs";
-import { signIn, signOut, useSession } from "next-auth/react";
 
 interface ResumeComponentProps {
   initialData: CVData;
@@ -22,7 +22,6 @@ export default function ResumeComponent({ initialData }: ResumeComponentProps) {
   const [editMode, setEditMode] = useState(false);
   const [cvData, setCvData] = useState<CVData>(initialData);
   const { data: session, status } = useSession();
-  const [visiblePortfolioItems, setVisiblePortfolioItems] = useState(4);
   const [visibleBlogPosts, setVisibleBlogPosts] = useState(4);
   const [isAdminRoute, setIsAdminRoute] = useState(false);
 
@@ -75,10 +74,6 @@ export default function ResumeComponent({ initialData }: ResumeComponentProps) {
     }));
   };
 
-  const loadMorePortfolio = () => {
-    setVisiblePortfolioItems((prevVisible) => prevVisible + 4);
-  };
-
   const loadMoreBlogs = () => {
     setVisibleBlogPosts((prevVisible) => prevVisible + 4);
   };
@@ -106,10 +101,7 @@ export default function ResumeComponent({ initialData }: ResumeComponentProps) {
               handleInputChange={handleInputChange}
               addItem={addItem}
               removeItem={removeItem}
-              visiblePortfolioItems={visiblePortfolioItems}
-              loadMorePortfolio={loadMorePortfolio}
               currentPortfolioPage={currentPortfolioPage}
-              setCurrentPortfolioPage={setCurrentPortfolioPage}
               prevPortfolioPage={prevPortfolioPage}
               nextPortfolioPage={nextPortfolioPage}
             />

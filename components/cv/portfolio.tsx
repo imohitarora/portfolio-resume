@@ -15,27 +15,12 @@ interface PortfolioProps {
   handleInputChange: (section: keyof CVData, index: number | null, field: string | null, value: string | string[]) => void;
   removeItem: (section: keyof CVData, index: number) => void;
   addItem: (section: keyof CVData) => void;
-  visiblePortfolioItems: number;
-  loadMorePortfolio: () => void;
   currentPortfolioPage: number;
-  setCurrentPortfolioPage: (page: number) => void;
   prevPortfolioPage: () => void;
   nextPortfolioPage: () => void;
 }
 
-export default function Portfolio({
-  editMode,
-  cvData,
-  handleInputChange,
-  removeItem,
-  addItem,
-  visiblePortfolioItems,
-  loadMorePortfolio,
-  currentPortfolioPage,
-  setCurrentPortfolioPage,
-  prevPortfolioPage,
-  nextPortfolioPage,
-}: PortfolioProps) {
+export default function Portfolio({ editMode, cvData, handleInputChange, removeItem, addItem, currentPortfolioPage, prevPortfolioPage, nextPortfolioPage }: PortfolioProps) {
   if (!editMode && cvData.portfolio.length === 0) {
     return null;
   }
