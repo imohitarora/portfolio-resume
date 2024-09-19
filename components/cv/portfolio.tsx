@@ -99,12 +99,14 @@ export default function Portfolio({ editMode, cvData, handleInputChange, removeI
                         Live
                       </a>
                     </Button>
-                    <Button size="sm" variant="ghost" className="h-6 text-xs p-0" asChild>
-                      <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                        <GithubIcon className="h-3 w-3 mr-1" />
-                        GitHub
-                      </a>
-                    </Button>
+                    {project.githubUrl && (
+                      <Button size="sm" variant="ghost" className="h-6 text-xs p-0" asChild>
+                        <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                          <GithubIcon className="h-3 w-3 mr-1" />
+                          GitHub
+                        </a>
+                      </Button>
+                    )}
                   </div>
                 </div>
               )}

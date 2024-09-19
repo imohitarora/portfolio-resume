@@ -13,6 +13,7 @@ import Header from "./cv/header";
 import Portfolio from "./cv/portfolio";
 import Skills from "./cv/skills";
 import Summary from "./cv/summary";
+import { getCalApi } from "@calcom/embed-react";
 
 interface ResumeComponentProps {
   initialData: CVData;
@@ -30,6 +31,21 @@ export default function ResumeComponent({ initialData }: ResumeComponentProps) {
   const pathname = usePathname();
 
   useEffect(() => {
+    (async function () {
+      const cal = await getCalApi({ namespace: "30min" });
+      cal("floatingButton", {
+        calLink: "mohitarora/30min",
+        config: { layout: "month_view", theme: "light" },
+        buttonText: "Book Time",
+        buttonColor: "#ffffff",
+        buttonTextColor: "#000000",
+        hideButtonIcon: false,
+      });
+      cal("ui", { theme: "light", styles: { branding: { brandColor: "#000000" } }, hideEventTypeDetails: false, layout: "month_view" });
+    })();
+  }, []);
+
+  useEffect(() => {
     setIsAdminRoute(pathname.includes("/admin"));
   }, [pathname]);
 
@@ -41,19 +57,19 @@ export default function ResumeComponent({ initialData }: ResumeComponentProps) {
 
   const updatePortfolioData = async (data: CVData) => {
     try {
-      const response = await fetch('/api/portfolio/update', {
-        method: 'PUT',
+      const response = await fetch("/api/portfolio/update", {
+        method: "PUT",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(data),
       });
       if (!response.ok) {
-        throw new Error('Failed to update portfolio');
+        throw new Error("Failed to update portfolio");
       }
       return await response.json();
     } catch (error) {
-      console.error('Error updating portfolio:', error);
+      console.error("Error updating portfolio:", error);
       throw error;
     }
   };
