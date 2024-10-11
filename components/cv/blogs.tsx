@@ -6,6 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { FiExternalLink as ExternalLinkIcon, FiPlus as PlusIcon, FiTrash as TrashIcon } from "react-icons/fi";
 import { CVData } from "@/lib/types";
 import { ChevronDownIcon } from "@radix-ui/react-icons";
+import React from "react";
 
 interface BlogsProps {
   cvData: CVData;
@@ -24,7 +25,7 @@ export default function Blogs({ editMode, cvData, handleInputChange, removeItem,
 
   return (
     <section className="mb-6">
-      <h2 className="text-lg font-bold text-gray-900 mb-3">Blog Posts</h2>
+      <h2 className="text-lg font-bold text-foreground mb-3">Blog Posts</h2>
       <div className="space-y-3">
         {cvData.blogs.slice(0, visibleBlogPosts).map((blog, index) => (
           <div key={index} className="border-b pb-2">
@@ -44,9 +45,9 @@ export default function Blogs({ editMode, cvData, handleInputChange, removeItem,
               </>
             ) : (
               <>
-                <h3 className="text-sm font-semibold text-gray-900">{blog.title}</h3>
-                <p className="text-xs text-gray-700 mb-1">{blog.summary}</p>
-                <a href={blog.url} target="_blank" rel="noopener noreferrer" className="text-xs text-blue-600 hover:underline flex items-center">
+                <h3 className="text-sm font-semibold text-foreground">{blog.title}</h3>
+                <p className="text-xs text-muted-foreground mb-1">{blog.summary}</p>
+                <a href={blog.url} target="_blank" rel="noopener noreferrer" className="text-xs text-primary hover:underline flex items-center">
                   Read More
                   <ExternalLinkIcon className="h-3 w-3 ml-1" />
                 </a>

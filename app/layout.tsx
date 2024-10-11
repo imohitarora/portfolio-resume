@@ -4,6 +4,7 @@ import "./globals.css";
 
 import { cn } from "@/lib/utils";
 import { Providers } from "./providers";
+import { ThemeProvider } from "@/components/theme-provider"
 
 const fontSans = FontSans({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -18,12 +19,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="icon" href="/mohit.svg" type="image/svg+xml" />
       </head>
       <body className={cn("min-h-screen bg-background font-sans antialiased", fontSans.variable)}>
-        <Providers>{children}</Providers>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <Providers>{children}</Providers>
+        </ThemeProvider>
       </body>
     </html>
   );

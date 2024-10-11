@@ -4,6 +4,7 @@ import { Switch } from "@/components/ui/switch";
 import { Button } from "@/components/ui/button";
 import { FiLogOut as LogOutIcon, FiGithub as GithubIcon } from "react-icons/fi";
 import { signIn, signOut } from "next-auth/react";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 interface EditModeSwitchProps {
   editMode: boolean;
@@ -19,13 +20,13 @@ export default function EditModeSwitch({ editMode, isAdminRoute, isAuthenticated
   const handleLogout = () => signOut();
 
   return (
-    <div className="flex justify-end mb-4">
+    <div className="flex justify-end mb-4 space-x-4">
       {isAdminRoute &&
         (isAuthenticated ? (
           <div className="flex items-center space-x-4">
             <div className="flex items-center space-x-2">
               <Switch id="edit-mode" checked={editMode} onCheckedChange={setEditMode} aria-label="Toggle edit mode" />
-              <label htmlFor="edit-mode" className="text-sm font-medium text-gray-700">
+              <label htmlFor="edit-mode" className="text-sm font-medium text-muted-foreground">
                 Edit Mode
               </label>
             </div>

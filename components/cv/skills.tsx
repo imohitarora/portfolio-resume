@@ -17,7 +17,7 @@ interface SkillsProps {
 export default function Skills({ editMode, cvData, handleInputChange, removeItem, addItem }: SkillsProps) {
   return (
     <section className="mb-6">
-      <h2 className="text-lg font-bold text-gray-900 mb-2">Skills</h2>
+      <h2 className="text-lg font-bold text-foreground mb-2">Skills</h2>
       <div className="flex flex-wrap gap-1.5">
         {cvData.skills.map((skill, index) => (
           <div key={index} className="flex items-center">

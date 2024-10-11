@@ -14,6 +14,7 @@ import Portfolio from "./cv/portfolio";
 import Skills from "./cv/skills";
 import Summary from "./cv/summary";
 import { getCalApi } from "@calcom/embed-react";
+import { ThemeToggle } from "./theme-toggle";
 
 interface ResumeComponentProps {
   initialData: CVData;
@@ -133,10 +134,10 @@ export default function ResumeComponent({ initialData }: ResumeComponentProps) {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 py-8 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-background py-8 px-4 sm:px-6 lg:px-8">
       <div className="max-w-3xl mx-auto">
         <EditModeSwitch editMode={editMode} isAdminRoute={isAdminRoute} isAuthenticated={!!session} setEditMode={setEditMode} />
-        <Card className="bg-white shadow-lg rounded-lg overflow-hidden">
+        <Card className="bg-card text-card-foreground shadow-lg rounded-lg overflow-hidden">
           <CardContent className="p-6">
             <Header cvData={cvData} editMode={editMode} handleInputChange={handleInputChange} />
             <Summary cvData={cvData} editMode={editMode} handleInputChange={handleInputChange} />

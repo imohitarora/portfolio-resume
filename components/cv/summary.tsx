@@ -15,11 +15,11 @@ interface SummaryProps {
 export default function Summary({ editMode, cvData, handleInputChange }: SummaryProps) {
   return (
     <section className="mb-6">
-      <h2 className="text-lg font-bold text-gray-900 mb-2">Summary</h2>
+      <h2 className="text-lg font-bold text-foreground mb-2">Summary</h2>
       {editMode ? (
         <Textarea value={cvData.summary} onChange={(e) => handleInputChange("summary", null, null, e.target.value)} className="text-sm" />
       ) : (
-        <p className="text-sm text-gray-700 leading-relaxed">{cvData.summary}</p>
+        <p className="text-sm text-muted-foreground leading-relaxed">{cvData.summary}</p>
       )}
     </section>
   );

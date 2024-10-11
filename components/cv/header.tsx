@@ -19,28 +19,28 @@ export default function Header({ editMode, cvData, handleInputChange }: HeaderPr
         <Input value={cvData.name} onChange={(e) => handleInputChange("name", null, null, e.target.value)} className="text-2xl font-bold text-center mb-2" />
       ) : (
         <Link href={`/`}>
-          <h1 className="text-2xl font-bold text-gray-900">{cvData.name}</h1>
+          <h1 className="text-2xl font-bold text-foreground">{cvData.name}</h1>
         </Link>
       )}
       {editMode ? (
         <Input value={cvData.title} onChange={(e) => handleInputChange("title", null, null, e.target.value)} className="text-lg text-center" />
       ) : (
-        <p className="text-lg text-gray-600">{cvData.title}</p>
+        <p className="text-lg text-muted-foreground">{cvData.title}</p>
       )}
       <div className="flex justify-center space-x-4 mt-3">
-        <a href={`https://github.com/${cvData.links.github}`} target="_blank" className="text-gray-600 hover:text-gray-900">
+        <a href={`https://github.com/${cvData.links.github}`} target="_blank" className="text-muted-foreground hover:text-foreground">
           <FiGithub className="h-5 w-5" />
         </a>
-        <a href={`https://linkedin.com/in/${cvData.links.linkedin}`} target="_blank" className="text-gray-600 hover:text-gray-900">
+        <a href={`https://linkedin.com/in/${cvData.links.linkedin}`} target="_blank" className="text-muted-foreground hover:text-foreground">
           <FiLinkedin className="h-5 w-5" />
         </a>
-        <a href={`https://x.com/${cvData.links.twitter}`} target="_blank" className="text-gray-600 hover:text-gray-900">
+        <a href={`https://x.com/${cvData.links.twitter}`} target="_blank" className="text-muted-foreground hover:text-foreground">
           <FaXTwitter className="h-5 w-5" />
         </a>
-        <a href={`/Mohit_Arora_CV.pdf`} target="_blank" className="text-gray-600 hover:text-gray-900">
+        <a href={`/Mohit_Arora_CV.pdf`} target="_blank" className="text-muted-foreground hover:text-foreground">
           <FiPaperclip className="h-5 w-5" />
         </a>
-        <a href={`mailto:${cvData.links.email}`} className="text-gray-600 hover:text-gray-900">
+        <a href={`mailto:${cvData.links.email}`} className="text-muted-foreground hover:text-foreground">
           <FiMail className="h-5 w-5" />
         </a>
       </div>

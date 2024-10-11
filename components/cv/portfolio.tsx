@@ -27,7 +27,7 @@ export default function Portfolio({ editMode, cvData, handleInputChange, removeI
 
   return (
     <section className="mb-6">
-      <h2 className="text-lg font-bold text-gray-900 mb-3">Portfolio</h2>
+      <h2 className="text-lg font-bold text-foreground mb-3">Portfolio</h2>
       <div className="relative">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {cvData.portfolio.slice(currentPortfolioPage * 4, (currentPortfolioPage + 1) * 4).map((project, index) => (
@@ -82,33 +82,35 @@ export default function Portfolio({ editMode, cvData, handleInputChange, removeI
                   </CardContent>
                 </Card>
               ) : (
-                <div className="bg-white p-3 rounded-lg transition-all duration-300 ease-in-out hover:shadow-sm shadow-lg">
-                  <h3 className="text-sm font-semibold text-gray-900 mb-1">{project.title}</h3>
-                  <p className="text-xs text-gray-600 mb-2 line-clamp-2 group-hover:line-clamp-none">{project.description}</p>
-                  <div className="flex flex-wrap gap-1 mb-2 opacity-60 group-hover:opacity-100 transition-opacity duration-300">
-                    {project.tech.map((tech, techIndex) => (
-                      <Badge key={techIndex} variant="secondary" className="text-[10px] px-1 py-0 bg-gray-100">
-                        {tech}
-                      </Badge>
-                    ))}
-                  </div>
-                  <div className="flex space-x-2 opacity-60 group-hover:opacity-100 transition-opacity duration-300">
-                    <Button size="sm" variant="ghost" className="h-6 text-xs p-0" asChild>
-                      <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                        <ExternalLinkIcon className="h-3 w-3 mr-1" />
-                        Live
-                      </a>
-                    </Button>
-                    {project.githubUrl && (
+                <Card className="bg-card text-card-foreground transition-all duration-300 ease-in-out hover:shadow-md">
+                  <CardContent className="p-3">
+                    <h3 className="text-sm font-semibold text-foreground mb-1">{project.title}</h3>
+                    <p className="text-xs text-muted-foreground mb-2 line-clamp-2 group-hover:line-clamp-none">{project.description}</p>
+                    <div className="flex flex-wrap gap-1 mb-2 opacity-60 group-hover:opacity-100 transition-opacity duration-300">
+                      {project.tech.map((tech, techIndex) => (
+                        <Badge key={techIndex} variant="secondary" className="text-[10px] px-1 py-0">
+                          {tech}
+                        </Badge>
+                      ))}
+                    </div>
+                    <div className="flex space-x-2 opacity-60 group-hover:opacity-100 transition-opacity duration-300">
                       <Button size="sm" variant="ghost" className="h-6 text-xs p-0" asChild>
-                        <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                          <GithubIcon className="h-3 w-3 mr-1" />
-                          GitHub
+                        <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                          <ExternalLinkIcon className="h-3 w-3 mr-1" />
+                          Live
                         </a>
                       </Button>
-                    )}
-                  </div>
-                </div>
+                      {project.githubUrl && (
+                        <Button size="sm" variant="ghost" className="h-6 text-xs p-0" asChild>
+                          <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                            <GithubIcon className="h-3 w-3 mr-1" />
+                            GitHub
+                          </a>
+                        </Button>
+                      )}
+                    </div>
+                  </CardContent>
+                </Card>
               )}
             </div>
           ))}
